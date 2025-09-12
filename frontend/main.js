@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch and display products
     async function fetchProducts() {
         productListDiv.innerHTML = '<p>Loading products...</p>';
-        const url = `${PRODUCT_API_BASE_URL}/products/`;
+        const url = `${PRODUCT_API_BASE_URL}/`;
         console.log("Attempting to fetch products from URL:", url); // DEBUG LOG
         try {
             const response = await fetch(url);
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             showMessage("Placing order...", 'info');
-            const response = await fetch(`${ORDER_API_BASE_URL}/orders/`, {
+            const response = await fetch(`${ORDER_API_BASE_URL}/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
