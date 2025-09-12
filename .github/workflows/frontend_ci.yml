@@ -1,5 +1,7 @@
 # week08/.github/workflows/frontend_ci.yml
 
+# github actions
+
 name: Frontend CI - Build & Push Image
 
 on:
