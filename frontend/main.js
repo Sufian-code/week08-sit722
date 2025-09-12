@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // from the Docker containers to the host machine in docker-compose.yml for Example 2.
 
     // const PRODUCT_API_BASE_URL = '_PRODUCT_API_URL_';
-    const PRODUCT_API_BASE_URL = '/products/';
+    const PRODUCT_API_BASE_URL = '/products';
     // const ORDER_API_BASE_URL = '_ORDER_API_URL_';
-    const ORDER_API_BASE_URL = '/orders/';
+    const ORDER_API_BASE_URL = '/orders';
 
     // Product Service is named 'product-service-w04e2' and exposes port 8000 internally.
     //const PRODUCT_API_BASE_URL = 'http://product-service-w04e2:8000';
