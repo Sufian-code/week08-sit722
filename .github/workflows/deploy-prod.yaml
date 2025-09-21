@@ -1,0 +1,28 @@
+name: 3. Orchestrated Deployment - PROD
+
+# Trigger this orchestrator on a push to main
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  # 1. Deploy the backend and wait for IPs
+  run_backend_cd:
+    uses: ./.github/workflows/backend-cd.yml
+    with:
+      aks_cluster_name: 'week09aksdevops'
+      aks_resource_group: 'azure-assignments'
+      aks_acr_name: 'week09acrdevops'
+    secrets: inherit
+
+  # 2. Deploy the frontend, passing it the IPs from the backend deployment
+  run_frontend_cd:
+    needs: run_backend_cd
+    uses: ./.github/workflows/frontend-cd.yml
+    with:
+      product_api_ip: ${{ needs.run_backend_cd.outputs.PRODUCT_IP }}
+      order_api_ip: ${{ needs.run_backend_cd.outputs.ORDER_IP }}
+      aks_cluster_name: 'week09aksdevops'
+      aks_resource_group: 'azure-assignments'
+    secrets: inherit
