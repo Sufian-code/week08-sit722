@@ -12,6 +12,7 @@ on:
   push:
     branches:
       - main
+      - develop
     paths: # Only trigger if changes are in the frontend directory
       - 'frontend/**'
       - '.github/workflows/frontend_ci.yml' # Trigger if this workflow file changes
